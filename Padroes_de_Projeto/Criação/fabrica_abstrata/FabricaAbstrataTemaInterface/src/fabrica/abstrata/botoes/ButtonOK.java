@@ -20,16 +20,16 @@ import javax.swing.JButton;
  * @author felip
  */
 public class ButtonOK  extends JButton{
-    
-    
+
     public ButtonOK(){
-     Image img = null;
+        Image img = null;
         try {
             img = ImageIO.read(getClass().getResource("Ok-icon.png"));
         } catch (IOException ex) {
             Logger.getLogger(ButtonCancel.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setIcon(new ImageIcon(img));
+        this.setText("OK");
     }
     
 }

@@ -15,9 +15,9 @@ import javax.swing.JButton;
  * @author felipe
  */
 public class ButtonCancel extends JButton{
-    
+
     public ButtonCancel(){
-        
+    
         Image img = null;
         try {
             img = ImageIO.read(getClass().getResource("Cancel-icon.jpg"));
@@ -25,7 +25,7 @@ public class ButtonCancel extends JButton{
             Logger.getLogger(ButtonCancel.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setIcon(new ImageIcon(img));
-        
+        this.setText("Cancelar");
     }
     
 }
