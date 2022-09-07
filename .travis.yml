@@ -1,0 +1,17 @@
+language: java
+jdk:
+  - oraclejdk8 
+sudo: false
+script: 
+ - mvn package -f "Padroes_de_Projeto/Criação/metodo_fabrica/GameChuvendoMonstrosComMetodoFabrica/pom.xml"
+ - curl --ftp-create-dirs -T "/home/travis/build/felipefo/poo2/Padroes_de_Projeto/Criação/metodo_fabrica/GameChuvendoMonstrosComMetodoFabrica/target/Game-1.0-SNAPSHOT.jar" -u $FTP_USER:$FTP_PASSWORD ftp://ftp.drivehq.com/felipefo
+ - javac RevisaoJava/Edificio.java RevisaoJava/Andar.java
+ - ant -buildfile "Padroes_de_Projeto/Criação/metodo_fabrica/ImagemMetodoFabrica/build.xml"
+ - ls "Padroes_de_Projeto/Criação/metodo_fabrica/ImagemMetodoFabrica/dist"
+deploy:
+ provider: releases
+ api_key: "$GITHUB_OAUTH_TOKEN"
+ file: "/home/travis/build/felipefo/poo2/Padroes_de_Projeto/Criação/metodo_fabrica/GameChuvendoMonstrosComMetodoFabrica/target/Game-1.0-SNAPSHOT.jar"
+ skip_cleanup: true
+ on:
+   tags: true
